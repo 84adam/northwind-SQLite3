@@ -12,7 +12,7 @@ All the TABLES and VIEWS from the MSSQL-2000 version have been converted to Sqli
 
 To use this database, follow these steps:
 
-1. Download the database creation script: https://github.com/jpwhite3/northwind-SQLite3/blob/master/Northwind.Sqlite3.create.sql
+1. Download this code repository and extract the archive: `wget -O northwind-SQLite3.zip https://github.com/84adam/northwind-SQLite3/archive/master.zip ; unzip -j northwind-SQLite3.zip -d northwind-SQLite3 ; cd northwind-SQLite3 ; ls`
 2. Create a new local database: `sqlite3 Northwind.db`
 3. Run the script to create the tables and fill them with data: `.read Northwind_Sqlite.sql`
 4. Now you can execute queries such as those shown below:
