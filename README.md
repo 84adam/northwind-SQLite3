@@ -17,7 +17,12 @@ To use this database, follow these steps:
 3. Run the script to create the tables and fill them with data: `.read Northwind_Sqlite.sql`
 4. Now you can execute queries such as those shown below:
 
-- `SELECT * FROM "Order Details" LIMIT 10;`
+- Ex. #1
+```
+SELECT *
+FROM "Order Details"
+LIMIT 10;
+```
 
 RESULTS:
 ```
@@ -34,7 +39,13 @@ OrderID|ProductID|UnitPrice|Quantity|Discount
 10251|57|15.6|15|0.05
 ```
   
-- `select suppliers.CompanyName, ProductName, UnitPrice FROM Suppliers INNER JOIN Products ON Suppliers.supplierid = Products.supplierid LIMIT 10;`
+- Ex. #2
+```
+select suppliers.CompanyName, ProductName, UnitPrice
+FROM Suppliers
+INNER JOIN Products ON Suppliers.supplierid = Products.supplierid
+LIMIT 10;
+```
 
 RESULTS:
 ```
@@ -49,4 +60,28 @@ Grandma Kelly's Homestead|Uncle Bob's Organic Dried Pears|30
 Grandma Kelly's Homestead|Northwoods Cranberry Sauce|40
 Tokyo Traders|Mishi Kobe Niku|97
 Tokyo Traders|Ikura|31
+```
+
+- Ex. #3
+```
+SELECT o.OrderID, c.CompanyName, e.LastName
+FROM ((Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID)
+INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID)
+LIMIT 10;
+```
+
+RESULTS:
+
+```
+OrderID|CompanyName|LastName
+10248|Vins et alcools Chevalier|Buchanan
+10249|Toms Spezialit�ten|Suyama
+10250|Hanari Carnes|Peacock
+10251|Victuailles en stock|Leverling
+10252|Supr�mes d�lices|Peacock
+10253|Hanari Carnes|Leverling
+10254|Chop-suey Chinese|Buchanan
+10255|Richter Supermarkt|Dodsworth
+10256|Wellington Importadora|Leverling
+10257|HILARION-Abastos|Peacock
 ```
