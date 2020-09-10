@@ -17,7 +17,7 @@ To use this database, follow these steps:
 3. Run the script to create the tables and fill them with data: `.read Northwind_Sqlite.sql`
 4. Now you can execute queries such as those shown below:
 
-- Ex. #1
+- Ex. #1: Select All
 ```
 SELECT *
 FROM "Order Details"
@@ -39,7 +39,7 @@ OrderID|ProductID|UnitPrice|Quantity|Discount
 10251|57|15.6|15|0.05
 ```
   
-- Ex. #2
+- Ex. #2: Inner Join
 ```
 select suppliers.CompanyName, ProductName, UnitPrice
 FROM Suppliers
@@ -62,7 +62,7 @@ Tokyo Traders|Mishi Kobe Niku|97
 Tokyo Traders|Ikura|31
 ```
 
-- Ex. #3
+- Ex. #3: Inner Join with 3 Tables
 ```
 SELECT o.OrderID, c.CompanyName, e.LastName
 FROM ((Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID)
@@ -84,4 +84,30 @@ OrderID|CompanyName|LastName
 10255|Richter Supermarkt|Dodsworth
 10256|Wellington Importadora|Leverling
 10257|HILARION-Abastos|Peacock
+```
+
+- Ex. #4: Working with Strings; Create 'UserName' from First/Last/ID#
+
+```
+SELECT
+    EmployeeID
+    ,FirstName
+    ,LastName
+    ,LOWER(SUBSTR(FirstName,1,1)||SUBSTR(LastName,1,8))||EmployeeID AS UserName
+FROM Employees;
+```
+
+RESULTS:
+
+```
+EmployeeID|FirstName|LastName|UserName
+1|Nancy|Davolio|ndavolio1
+2|Andrew|Fuller|afuller2
+3|Janet|Leverling|jleverlin3
+4|Margaret|Peacock|mpeacock4
+5|Steven|Buchanan|sbuchanan5
+6|Michael|Suyama|msuyama6
+7|Robert|King|rking7
+8|Laura|Callahan|lcallahan8
+9|Anne|Dodsworth|adodswort9
 ```
