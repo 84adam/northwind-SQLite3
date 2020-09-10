@@ -17,14 +17,14 @@ To use this database, follow these steps:
 3. Run the script to create the tables and fill them with data: `.read Northwind_Sqlite.sql`
 4. Now you can execute queries such as those shown below:
 
-- Ex. #1: Select All
+- **Ex. #1: Select All**
 ```
 SELECT *
 FROM "Order Details"
 LIMIT 10;
 ```
 
-RESULTS:
+- RESULTS:
 ```
 OrderID|ProductID|UnitPrice|Quantity|Discount
 10248|11|14|12|0.0
@@ -39,7 +39,7 @@ OrderID|ProductID|UnitPrice|Quantity|Discount
 10251|57|15.6|15|0.05
 ```
   
-- Ex. #2: Inner Join
+- **Ex. #2: Inner Join**
 ```
 select suppliers.CompanyName, ProductName, UnitPrice
 FROM Suppliers
@@ -47,7 +47,7 @@ INNER JOIN Products ON Suppliers.supplierid = Products.supplierid
 LIMIT 10;
 ```
 
-RESULTS:
+- RESULTS:
 ```
 CompanyName|ProductName|UnitPrice
 Exotic Liquids|Chai|18
@@ -62,7 +62,7 @@ Tokyo Traders|Mishi Kobe Niku|97
 Tokyo Traders|Ikura|31
 ```
 
-- Ex. #3: Inner Join with 3 Tables
+- **Ex. #3: Inner Join with 3 Tables**
 ```
 SELECT o.OrderID, c.CompanyName, e.LastName
 FROM ((Orders o INNER JOIN Customers c ON o.CustomerID = c.CustomerID)
@@ -70,7 +70,7 @@ INNER JOIN Employees e ON o.EmployeeID = e.EmployeeID)
 LIMIT 10;
 ```
 
-RESULTS:
+- RESULTS:
 
 ```
 OrderID|CompanyName|LastName
@@ -86,7 +86,7 @@ OrderID|CompanyName|LastName
 10257|HILARION-Abastos|Peacock
 ```
 
-- Ex. #4: Working with Strings; Create 'UserName' from First/Last/ID#
+- **Ex. #4: Working with Strings (Generate 'UserName' from FirstName + LastName + EmployeeID)**
 
 ```
 SELECT
@@ -97,7 +97,7 @@ SELECT
 FROM Employees;
 ```
 
-RESULTS:
+- RESULTS:
 
 ```
 EmployeeID|FirstName|LastName|UserName
