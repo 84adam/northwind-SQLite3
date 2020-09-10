@@ -111,3 +111,27 @@ EmployeeID|FirstName|LastName|UserName
 8|Laura|Callahan|lcallahan8
 9|Anne|Dodsworth|adodswort9
 ```
+
+- **Ex. #5: Calculate 'Age' using BirthDate and Today's Date (Cast as 'Age' integer and don't round up.)**
+
+```
+SELECT
+    BirthDate
+    ,CAST(STRFTIME('%Y.%m%d', 'now') - STRFTIME('%Y.%m%d', BirthDate) AS INT) AS Age
+FROM Employees;
+```
+
+- RESULTS:
+
+```
+BirthDate|Age
+1948-12-08|71
+1952-02-19|68
+1963-08-30|57
+1937-09-19|82
+1955-03-04|65
+1963-07-02|57
+1960-05-29|60
+1958-01-09|62
+1966-01-27|54
+```
