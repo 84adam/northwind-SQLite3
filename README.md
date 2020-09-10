@@ -112,7 +112,7 @@ EmployeeID|FirstName|LastName|UserName
 9|Anne|Dodsworth|adodswort9
 ```
 
-- **Ex. #5: Calculate 'Age' using BirthDate and Today's Date (Cast as 'Age' integer and don't round up.)**
+- **Ex. #5: Calculate 'Age' using BirthDate and Today's Date (Cast 'Age' as integer and don't round up.)**
 
 ```
 SELECT
