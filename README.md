@@ -136,7 +136,7 @@ BirthDate|Age
 1966-01-27|54
 ```
 
-- **Ex. #6: CASE statement to create Binary or Categorical variable (London Y/N)**
+- **Ex. #6: CASE statement to create Binary/Categorical variable (London Y/N; One-hot Encoding)**
 
 ```
 SELECT 
