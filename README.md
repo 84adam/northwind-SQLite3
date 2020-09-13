@@ -135,3 +135,35 @@ BirthDate|Age
 1958-01-09|62
 1966-01-27|54
 ```
+
+- **Ex. #6: CASE statement to create Binary or Categorical variable (London Y/N)**
+
+```
+SELECT 
+    EmployeeID
+    ,LastName
+    ,FirstName
+    ,City
+    ,CASE City
+        WHEN 'London' THEN 1
+        ELSE 0
+        END "London(Y/N)"
+    FROM Employees
+    ORDER BY City, LastName
+    LIMIT 10;
+```
+
+- RESULTS:
+
+```
+EmployeeID|LastName|FirstName|City|London(Y/N)
+3|Leverling|Janet|Kirkland|0
+5|Buchanan|Steven|London|1
+9|Dodsworth|Anne|London|1
+7|King|Robert|London|1
+6|Suyama|Michael|London|1
+4|Peacock|Margaret|Redmond|0
+8|Callahan|Laura|Seattle|0
+1|Davolio|Nancy|Seattle|0
+2|Fuller|Andrew|Tacoma|0
+```
