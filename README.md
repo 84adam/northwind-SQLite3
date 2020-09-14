@@ -86,7 +86,7 @@ OrderID|CompanyName|LastName
 10257|HILARION-Abastos|Peacock
 ```
 
-- **Ex. #4: Working with Strings (Generate 'UserName' from FirstName + LastName + EmployeeID)**
+- **Ex. #4: Generate 'UserName' from first initial + LastName + EmployeeID using Substrings (SUBSTR) and Concatenation (||)**
 
 ```
 SELECT
@@ -168,7 +168,7 @@ EmployeeID|LastName|FirstName|City|London(Y/N)
 2|Fuller|Andrew|Tacoma|0
 ```
 
-- **Ex. #7: Create custom VIEW ('my_view') and COUNT total number of territories for each Employee with GROUP BY**```
+- **Ex. #7: Create custom VIEW ('my_view') and COUNT total number of territories for each Employee with GROUP BY**
 
 ```
 CREATE VIEW my_view AS
@@ -196,7 +196,7 @@ SELECT
     GROUP BY LastName, FirstName;
 ```
 
--- RESULTS:
+- RESULTS:
 
 ```
 Total_Territories|LastName|FirstName|HireDate|ReportsTo
