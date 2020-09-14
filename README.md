@@ -168,7 +168,7 @@ EmployeeID|LastName|FirstName|City|London(Y/N)
 2|Fuller|Andrew|Tacoma|0
 ```
 
-- **Ex. #7: Create custom VIEW, 'my_view', Right-TRIM description fields, and SELECT from VIEW**
+- **Ex. #7: Create custom VIEW ('my_view') and COUNT total number of territories for each Employee with GROUP BY**```
 
 ```
 CREATE VIEW my_view AS
@@ -182,41 +182,31 @@ CREATE VIEW my_view AS
     FROM Regions r
     INNER JOIN Territories t on r.RegionId = t.RegionId
     INNER JOIN EmployeeTerritories et on t.TerritoryId = et.TerritoryId
-    INNER JOIN Employees e on et.EmployeeId = e.EmployeeId
-    ;
+    INNER JOIN Employees e on et.EmployeeId = e.EmployeeId;
 ```
 
 ```
-SELECT * FROM my_view LIMIT 25;
+SELECT 
+    COUNT(Territory_Description) AS Total_Territories
+    ,LastName
+    ,FirstName
+    ,HireDate
+    ,ReportsTo
+    FROM my_view
+    GROUP BY LastName, FirstName;
 ```
 
-- RESULTS:
+-- RESULTS:
 
 ```
-Region_Description|Territory_Description|LastName|FirstName|HireDate|ReportsTo
-Eastern|Wilton|Davolio|Nancy|1992-05-01|2
-Eastern|Neward|Davolio|Nancy|1992-05-01|2
-Eastern|Westboro|Fuller|Andrew|1992-08-14|
-Eastern|Bedford|Fuller|Andrew|1992-08-14|
-Eastern|Georgetow|Fuller|Andrew|1992-08-14|
-Eastern|Boston|Fuller|Andrew|1992-08-14|
-Eastern|Cambridge|Fuller|Andrew|1992-08-14|
-Eastern|Braintree|Fuller|Andrew|1992-08-14|
-Eastern|Louisville|Fuller|Andrew|1992-08-14|
-Southern|Atlanta|Leverling|Janet|1992-04-01|2
-Southern|Savannah|Leverling|Janet|1992-04-01|2
-Southern|Orlando|Leverling|Janet|1992-04-01|2
-Southern|Tampa|Leverling|Janet|1992-04-01|2
-Eastern|Rockville|Peacock|Margaret|1993-05-03|2
-Eastern|Greensboro|Peacock|Margaret|1993-05-03|2
-Eastern|Cary|Peacock|Margaret|1993-05-03|2
-Eastern|Providence|Buchanan|Steven|1993-10-17|2
-Eastern|Morristown|Buchanan|Steven|1993-10-17|2
-Eastern|Edison|Buchanan|Steven|1993-10-17|2
-Eastern|New York|Buchanan|Steven|1993-10-17|2
-Eastern|New York|Buchanan|Steven|1993-10-17|2
-Eastern|Mellvile|Buchanan|Steven|1993-10-17|2
-Eastern|Fairport|Buchanan|Steven|1993-10-17|2
-Westerns|Phoenix|Suyama|Michael|1993-10-17|5
-Westerns|Scottsdale|Suyama|Michael|1993-10-17|5
+Total_Territories|LastName|FirstName|HireDate|ReportsTo
+7|Buchanan|Steven|1993-10-17|2
+4|Callahan|Laura|1994-03-05|2
+2|Davolio|Nancy|1992-05-01|2
+7|Dodsworth|Anne|1994-11-15|5
+7|Fuller|Andrew|1992-08-14|
+10|King|Robert|1994-01-02|5
+4|Leverling|Janet|1992-04-01|2
+3|Peacock|Margaret|1993-05-03|2
+5|Suyama|Michael|1993-10-17|5
 ```
